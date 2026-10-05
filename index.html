@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo">CAR<span>BUILDER</span></div>
+
+        <div class="top-info">
+            <div>
+                <small>CAR</small>
+                <strong id="selectedCar">Select a car</strong>
+            </div>
+
+            <div>
+                <small>POWER</small>
+                <strong id="power">— HP</strong>
+            </div>
+
+            <div>
+                <small>WEIGHT</small>
+                <strong id="weight">— KG</strong>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- BARRA IZQUIERDA -->
+        <aside class="sidebar">
+
+            <div class="section-title">BUILD</div>
+
+            <button class="category active" data-category="car">
+                <span>01</span>
+                <b>CAR</b>
+            </button>
+
+            <button class="category" data-category="engine">
+                <span>02</span>
+                <b>ENGINE</b>
+            </button>
+
+            <button class="category" data-category="turbo">
+                <span>03</span>
+                <b>TURBO</b>
+            </button>
+
+            <button class="category" data-category="exhaust">
+                <span>04</span>
+                <b>EXHAUST</b>
+            </button>
+
+            <button class="category" data-category="wheels">
+                <span>05</span>
+                <b>WHEELS</b>
+            </button>
+
+            <button class="category" data-category="brakes">
+                <span>06</span>
+                <b>BRAKES</b>
+            </button>
+
+            <button class="category" data-category="suspension">
+                <span>07</span>
+                <b>SUSPENSION</b>
+            </button>
+
+            <button class="category" data-category="body">
+                <span>08</span>
+                <b>BODY KIT</b>
+            </button>
+
+            <button class="category" data-category="interior">
+                <span>09</span>
+                <b>INTERIOR</b>
+            </button>
+
+            <button class="category" data-category="paint">
+                <span>10</span>
+                <b>PAINT</b>
+            </button>
+
+        </aside>
+
+        <!-- ÁREA CENTRAL -->
+        <section class="garage">
+
+            <div class="garage-grid"></div>
+
+            <div class="car-placeholder">
+                <div class="car-shadow"></div>
+
+                <div class="car-text">
+                    <small>3D GARAGE</small>
+                    <h1 id="garageTitle">SELECT YOUR CAR</h1>
+                    <p id="garageDescription">
+                        Choose a vehicle from the menu below.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ESTADÍSTICAS -->
+            <div class="stats">
+
+                <div class="stat">
+                    <span>POWER</span>
+                    <strong id="statPower">— HP</strong>
+                </div>
+
+                <div class="stat">
+                    <span>TORQUE</span>
+                    <strong id="statTorque">— NM</strong>
+                </div>
+
+                <div class="stat">
+                    <span>WEIGHT</span>
+                    <strong id="statWeight">— KG</strong>
+                </div>
+
+                <div class="stat">
+                    <span>DRIVETRAIN</span>
+                    <strong id="statDrive">—</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PANEL INFERIOR -->
+    <section class="selection-panel">
+
+        <div class="selection-header">
+
+            <div>
+                <small id="selectionType">SELECT</small>
+                <h2 id="selectionTitle">CAR</h2>
+            </div>
+
+            <div class="selection-path" id="selectionPath">
+                Select a category
+            </div>
+
+        </div>
+
+        <div class="selection-content" id="selectionContent">
+            <!-- JS -->
+        </div>
+
+    </section>
+
+    <script src="cars.js"></script>
+    <script src="parts.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
