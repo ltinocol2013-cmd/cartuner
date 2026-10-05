@@ -3,130 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Tuner</title>
+
+    <title>CAR TUNER</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- STYLES -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
     <header class="topbar">
-        <div class="logo">CAR<span>TUNER</span></div>
 
-        <div class="top-info">
-            <div>
-                <small>CAR</small>
-                <strong id="selectedCar">Select a car</strong>
-            </div>
-
-            <div>
-                <small>POWER</small>
-                <strong id="power">— HP</strong>
-            </div>
-
-            <div>
-                <small>WEIGHT</small>
-                <strong id="weight">— KG</strong>
-            </div>
+        <div class="logo">
+            CAR<span>TUNER</span>
         </div>
+
+        <div class="current-car">
+            <span id="currentCarName">
+                Ningún auto seleccionado
+            </span>
+        </div>
+
+        <div class="top-actions">
+            <button id="resetBuild">
+                RESET BUILD
+            </button>
+        </div>
+
     </header>
 
-    <main>
 
-        <!-- BARRA IZQUIERDA -->
-        <aside class="sidebar">
+    <!-- =========================
+         MAIN
+    ========================== -->
 
-            <div class="section-title">BUILD</div>
+    <main class="main-container">
 
-            <button class="category active" data-category="car">
-                <span>01</span>
-                <b>CAR</b>
+        <!-- =========================
+             LEFT CATEGORY BAR
+        ========================== -->
+
+        <aside class="category-bar">
+
+            <button class="category-button active" data-category="car">
+                <span>🚗</span>
+                <label>CAR</label>
             </button>
 
-            <button class="category" data-category="engine">
-                <span>02</span>
-                <b>ENGINE</b>
+            <button class="category-button" data-category="engine">
+                <span>⚙</span>
+                <label>ENGINE</label>
             </button>
 
-            <button class="category" data-category="turbo">
-                <span>03</span>
-                <b>TURBO</b>
+            <button class="category-button" data-category="turbo">
+                <span>◆</span>
+                <label>TURBO</label>
             </button>
 
-            <button class="category" data-category="exhaust">
-                <span>04</span>
-                <b>EXHAUST</b>
+            <button class="category-button" data-category="intake">
+                <span>◈</span>
+                <label>INTAKE</label>
             </button>
 
-            <button class="category" data-category="wheels">
-                <span>05</span>
-                <b>WHEELS</b>
+            <button class="category-button" data-category="exhaust">
+                <span>≋</span>
+                <label>EXHAUST</label>
             </button>
 
-            <button class="category" data-category="brakes">
-                <span>06</span>
-                <b>BRAKES</b>
+            <button class="category-button" data-category="intercooler">
+                <span>▤</span>
+                <label>INTERCOOLER</label>
             </button>
 
-            <button class="category" data-category="suspension">
-                <span>07</span>
-                <b>SUSPENSION</b>
+            <button class="category-button" data-category="radiator">
+                <span>▥</span>
+                <label>RADIATOR</label>
             </button>
 
-            <button class="category" data-category="body">
-                <span>08</span>
-                <b>BODY KIT</b>
+            <button class="category-button" data-category="clutch">
+                <span>◎</span>
+                <label>CLUTCH</label>
             </button>
 
-            <button class="category" data-category="interior">
-                <span>09</span>
-                <b>INTERIOR</b>
+            <button class="category-button" data-category="differential">
+                <span>◉</span>
+                <label>DIFF</label>
             </button>
 
-            <button class="category" data-category="paint">
-                <span>10</span>
-                <b>PAINT</b>
+            <button class="category-button" data-category="wheels">
+                <span>◯</span>
+                <label>WHEELS</label>
+            </button>
+
+            <button class="category-button" data-category="tires">
+                <span>◉</span>
+                <label>TIRES</label>
+            </button>
+
+            <button class="category-button" data-category="brakes">
+                <span>●</span>
+                <label>BRAKES</label>
+            </button>
+
+            <button class="category-button" data-category="suspension">
+                <span>╋</span>
+                <label>SUSPENSION</label>
+            </button>
+
+            <button class="category-button" data-category="body">
+                <span>▱</span>
+                <label>BODY KIT</label>
+            </button>
+
+            <button class="category-button" data-category="interior">
+                <span>▣</span>
+                <label>INTERIOR</label>
+            </button>
+
+            <button class="category-button" data-category="paint">
+                <span>●</span>
+                <label>PAINT</label>
             </button>
 
         </aside>
 
-        <!-- ÁREA CENTRAL -->
+
+        <!-- =========================
+             3D / CAR AREA
+        ========================== -->
+
         <section class="garage">
 
             <div class="garage-grid"></div>
 
-            <div class="car-placeholder">
-                <div class="car-shadow"></div>
+            <div id="carViewer">
 
-                <div class="car-text">
-                    <small>3D GARAGE</small>
-                    <h1 id="garageTitle">SELECT YOUR CAR</h1>
-                    <p id="garageDescription">
-                        Choose a vehicle from the menu below.
+                <div id="carPlaceholder">
+
+                    <div class="placeholder-icon">
+                        🚗
+                    </div>
+
+                    <h1>
+                        SELECT A CAR
+                    </h1>
+
+                    <p>
+                        Choose a vehicle from the CAR category.
                     </p>
+
                 </div>
+
             </div>
 
-            <!-- ESTADÍSTICAS -->
-            <div class="stats">
 
-                <div class="stat">
-                    <span>POWER</span>
-                    <strong id="statPower">— HP</strong>
+            <!-- =========================
+                 CAR INFO
+            ========================== -->
+
+            <div class="car-info">
+
+                <div class="info-title">
+                    VEHICLE DATA
                 </div>
 
-                <div class="stat">
-                    <span>TORQUE</span>
-                    <strong id="statTorque">— NM</strong>
-                </div>
+                <div class="stats">
 
-                <div class="stat">
-                    <span>WEIGHT</span>
-                    <strong id="statWeight">— KG</strong>
-                </div>
+                    <div class="stat">
+                        <span>POWER</span>
 
-                <div class="stat">
-                    <span>DRIVETRAIN</span>
-                    <strong id="statDrive">—</strong>
+                        <strong>
+                            <span id="powerValue">0</span> HP
+                        </strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>TORQUE</span>
+
+                        <strong>
+                            <span id="torqueValue">0</span> Nm
+                        </strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>WEIGHT</span>
+
+                        <strong>
+                            <span id="weightValue">0</span> kg
+                        </strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>DRIVETRAIN</span>
+
+                        <strong id="drivetrainValue">
+                            ---
+                        </strong>
+                    </div>
+
                 </div>
 
             </div>
@@ -135,31 +216,91 @@
 
     </main>
 
-    <!-- PANEL INFERIOR -->
-    <section class="selection-panel">
 
-        <div class="selection-header">
+    <!-- =========================
+         BOTTOM MODIFIER PANEL
+    ========================== -->
+
+    <section class="bottom-panel">
+
+        <div class="panel-header">
 
             <div>
-                <small id="selectionType">SELECT</small>
-                <h2 id="selectionTitle">CAR</h2>
+
+                <span
+                    class="panel-category"
+                    id="panelCategory"
+                >
+                    CAR
+                </span>
+
+                <span
+                    class="panel-subtitle"
+                    id="panelSubtitle"
+                >
+                    SELECT MANUFACTURER
+                </span>
+
             </div>
 
-            <div class="selection-path" id="selectionPath">
-                Select a category
-            </div>
+            <button
+                id="backToBrands"
+                class="back-button hidden"
+            >
+                ← BRANDS
+            </button>
 
         </div>
 
-        <div class="selection-content" id="selectionContent">
-            <!-- JS -->
-        </div>
+
+        <!-- =========================
+             BRANDS
+        ========================== -->
+
+        <div
+            id="brandContainer"
+            class="horizontal-list"
+        ></div>
+
+
+        <!-- =========================
+             PRODUCTS
+        ========================== -->
+
+        <div
+            id="productContainer"
+            class="horizontal-list hidden"
+        ></div>
 
     </section>
 
+
+    <!-- =========================
+         NOTIFICATION
+    ========================== -->
+
+    <div
+        id="notification"
+        class="notification"
+    >
+
+        <span id="notificationText"></span>
+
+    </div>
+
+
+    <!-- =========================
+         DATA
+    ========================== -->
+
     <script src="cars.js"></script>
     <script src="parts.js"></script>
-    <script src="script.js"></script>
+
+    <!-- =========================
+         MAIN APP
+    ========================== -->
+
+    <script src="app.js"></script>
 
 </body>
 </html>
